@@ -96,8 +96,6 @@ class GloboIE(InfoExtractor):
         video = self._download_json(
             'http://api.globovideos.com/videos/%s/playlist' % video_id,
             video_id)['videos'][0]
-        if video.get('encrypted') is True:
-            raise ExtractorError('This video is DRM protected.', expected=True)
 
         title = video['title']
 
